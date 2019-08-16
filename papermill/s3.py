@@ -148,7 +148,7 @@ class S3(object):
             if not all(S3.s3_session):
                 session = Session()
                 client = session.client('s3')
-                s3 = session.resource('s3')
+                s3 = session.resource('s3',endpoint_url='http://minio:9000')
                 S3.s3_session = (session, client, s3)
 
         (self.session, self.client, self.s3) = S3.s3_session
